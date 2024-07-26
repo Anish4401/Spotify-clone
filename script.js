@@ -19,7 +19,7 @@ let songs = [
     {songName: "My Heart-Different Heaven, EH!DE", filePath: "songs/9.mp3", coverPath: "covers/9.jpg"},
     {songName: "Feel Good-Syn Cole", filePath: "songs/10.mp3", coverPath: "covers/10.jpg"},
 ]
-
+//Iteration
 songItems.forEach((element, i)=>{ 
     element.getElementsByTagName("img")[0].src = songs[i].coverPath; 
     element.getElementsByClassName("songName")[0].innerText = songs[i].songName; 
@@ -52,7 +52,9 @@ myProgressBar.addEventListener('change', ()=>{
     audioElement.currentTime = myProgressBar.value * audioElement.duration/100;
 })
 
+//playing all song
 const makeAllPlays = ()=>{
+    //array.form converts the collection of html in an array
     Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
         element.classList.remove('fa-pause-circle');
         element.classList.add('fa-play-circle');
@@ -74,7 +76,7 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
         masterPlay.classList.add('fa-pause-circle');
     })
 })
-
+//playing next
 document.getElementById('next').addEventListener('click', ()=>{
     if(songIndex>=9){
         songIndex = 0
@@ -90,7 +92,7 @@ document.getElementById('next').addEventListener('click', ()=>{
     masterPlay.classList.add('fa-pause-circle');
 
 })
-
+//playing previous
 document.getElementById('previous').addEventListener('click', ()=>{
     if(songIndex<=0){
         songIndex = 0
